@@ -19,8 +19,21 @@
     <section id="events">
       <h2>Events in Action</h2>
       <button v-on:click="increment(5)">Add</button>
-      <button v-on:click="decrement(5)">Remove</button>
+      <!-- We have prevent the right click to open context menu  -->
+      <button v-on:click="decrement(5)" v-on:click.right.prevent="">
+        Remove
+      </button>
       <p>Result: {{ counter }}</p>
+      <input
+        type="text"
+        v-on:input="setName($event, 'Uddin')"
+        v-on:keyUp.enter="confirmName"
+      />
+      <p>Your Name: {{confirmed_name}}</p>
+      <form v-on:submit.prevent="submitForm">
+        <input type="text" />
+        <button>Submit</button>
+      </form>
     </section>
   </body>
 </html>
