@@ -31,6 +31,13 @@
       ></div> -->
       <!-- Simplified version  -->
       <div class="demo" :class="boxAClasses" @click="boxSelected('A')"></div>
+
+      <!-- Can be used a s following too -->
+      <!-- <div
+        class="demo"
+        :class="{active:boxASelected}"
+        @click="boxSelected('A')"
+      ></div> -->
       <div class="demo" :class="boxBlasses" @click="boxSelected('B')"></div>
       <div class="demo" :class="boxClasses" @click="boxSelected('C')"></div>
     </section>
