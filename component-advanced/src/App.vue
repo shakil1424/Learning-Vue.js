@@ -15,10 +15,14 @@
         </h2>
       </template>
     </course-goals> -->
-    <button>Active Goals</button>
-    <button>Manage Goals</button>
-    <active-goals></active-goals>
-    <manage-goals></manage-goals>
+    <button @click="setSeletedComponent('active-goals')">Active Goals</button>
+    <button @click="setSeletedComponent('manage-goals')">Manage Goals</button>
+    <!-- <active-goals v-if="selectedComponent === 'active-goals'"></active-goals>
+    <manage-goals v-if="selectedComponent === 'manage-goals'"></manage-goals> -->
+
+    <keep-alive>
+      <component :is="selectedComponent"></component>
+    </keep-alive>
   </div>
 </template>
 
@@ -41,12 +45,18 @@ export default {
   },
   data() {
     return {
+      selectedComponent: 'active-goals',
       activeUser: {
         name: 'Maximilian Schwarzmüller',
         description: 'Site owner and admin',
         role: 'admin',
       },
     };
+  },
+  methods: {
+    setSeletedComponent(component) {
+      this.selectedComponent = component;
+    },
   },
 };
 </script>
