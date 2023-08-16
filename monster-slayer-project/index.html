@@ -58,6 +58,10 @@
               heals himself
               <span class="log--heal"> {{log.actionValue}}</span>
             </span>
+            <span v-if="log.actionType==='special_attacks'">
+              special attacks and deals
+              <span class="log--damage"> {{log.actionValue}}</span>
+            </span>
             <span v-else>
               attacks and deals
               <span class="log--damage"> {{log.actionValue}} </span>
